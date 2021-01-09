@@ -1,0 +1,50 @@
+(1/8/21)
+
+- Updated the disassembly to support the changes made to the framework.
+- Moved the cheat code and copy detection setting defines to the ROM Map files.
+
+;--------------------------------------------------------------------
+
+(10/31/20)
+
+- Removed all graphics, music, and sample file, and provided a script to extract them from any clean, headerless USA/PAL/Japanese Plok ROM
+- Added partial support for the French version.
+- Identified some data found at the end of the PAL version.
+- Updated the disassembly to support the changes made to the framework.
+- Fixed an oversight where I missed a couple garbage bytes at the end of the USA/PAL/Japanese ROMs. It turns out the checksum was correct after all.
+- Added a warning that the german and french versions of Plok are not 100% complete.
+
+;--------------------------------------------------------------------
+
+(9/17/20)
+
+- Added support for the Japanese version and partial support for the German version.
+- Removed the PLOK_InsertGarbageData() macro and replaced all instances of it, as this macro has been made into a global macro.
+- Overhauled the UnsortedData handling so that the the size of the data blocks and a currently unknown parameter are now handled automatically.
+- Identified the sprite data.
+- Fixed the text decoder batch script so that it displays the correct palette.
+- Made various lines of text easier to edit the position of.
+- Moved the text data to an external file so this data won't clutter up the routine macro file as more versions are supported.
+- Dumped the text for the German version, but it's currently unused. The script I used to do this is provided.
+- Adjusted the disassembly to function correctly with all the new framework changes.
+- Added a picture folder for useful pictures and diagrams.
+- Assigned a name to each string of text, which helped to identify a bunch of different routines.
+
+;--------------------------------------------------------------------
+
+(8/26/20)
+
+- Added support for the PAL version.
+- Moved various blocks of unused junk code and data into a new GarbageData folder so this junk doesn't clutter up the main disassembly.
+- Added a macro called "PLOK_InsertGarbageData()" that will insert the garbage data. It will not insert this data if !Define_Global_IgnoreOriginalFreespace is enabled.
+- Reduced the size of GFX_848000 by 8 KB, as it turned out that the end of the file contained an unused duplicate of other graphics in bank 84.
+- Got rid of the InitAndMainLoop routine macro, as it didn't make sense due to Plok's programming structure.
+- Identified the level sprite data, stage transformation data, various RAM addresses, and all the files in bank 89-9F.
+
+;--------------------------------------------------------------------
+
+(8/9/20)
+
+- Initial release
+
+;--------------------------------------------------------------------

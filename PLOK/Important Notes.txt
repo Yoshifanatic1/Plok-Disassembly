@@ -1,0 +1,22 @@
+
+- This isn't the final draft of the disassembly. I'll continue to update the disassembly as needed.
+
+- Only the USA and PAL versions are supported currently. The other versions (Japan, French, and German) are partially implemented, but as a placeholder for when the actual differences are accounted for in the disassembly.
+
+- Currently, it's impossible to edit most of the graphics as is, since Plok's graphics format is not supported by Lunar Compress yet.
+
+- The GFX files that have a ROM address in their name are editable, as these graphics were stored uncompressed in the ROM. All the other GFX files were compressed files that have been uncompressed by extracting the data from the game's memory. Editing these won't have an effect on the ROM.
+
+- Code/Data that isn't referenced anywhere that I don't know the purpose of use ADDR/UNK labels instead of CODE/DATA. Some of these are likely unused code/data, but not always. Deeper investigation is needed to know for sure.
+
+- I've added a define that enables the dummied out cheat codes functionality. This will have the effect of shifting stuff near the end of bank 80 however, as I wanted to implement it in the way the developer likely did.
+
+- I've added a define that disables the copy protection codes. Like with the cheat code define, this one will also cause stuff to shift around.
+
+- If increasing the SRAM size via the define in the ROM Map file, be sure to also disable the copy protection via the define in the misc. defines file as well. Otherwise, you'll end up with an unplayable ROM!
+
+- I found most of the pointers in the ROM, but there is a chance I may have missed some. The best way of testing this is to shift around the ROM banks and to move something at the start of each the bank to the end. If something glitches, then I definitely missed a pointer somewhere.
+
+- The bonus levels are stored inside their respective level's file, so there aren't any missing level data files.
+
+- Asar doesn't support unicode files, which means it's impossible for me to make the japanese text data readable. The english characters will be readable, at least.
